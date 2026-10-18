@@ -1,0 +1,35 @@
+[project]
+name = "synapto-api"
+version = "0.6.0"
+description = "SYNAPTO first-party API (local-first, no third-party AI providers)"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
+  "httpx>=0.27",
+  "pydantic-settings>=2.6",
+  "email-validator>=2.2",
+  "sqlalchemy>=2.0",
+  "alembic>=1.13",
+  "pyjwt>=2.9",
+  "argon2-cffi>=23.1",
+  "python-multipart>=0.0.12",
+  "pypdf>=5.0",
+  "python-docx>=1.1",
+  "numpy>=1.26",
+  "cryptography>=42",
+  "google-genai>=1.0",
+]
+
+[project.optional-dependencies]
+voice = ["faster-whisper>=1.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
